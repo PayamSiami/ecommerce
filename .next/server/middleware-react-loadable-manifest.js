@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST={"../../node_modules/.pnpm/@sanity+client@5.4.2/node_modules/@sanity/client/dist/index.browser.js -> @sanity/eventsource":{id:8056,files:["static/chunks/56.a3db7e71a8144aca.js"]}};
