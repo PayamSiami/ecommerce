@@ -14,10 +14,8 @@ const ProductDetails = ({ product, products }: any) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
 
-  const handleBuyNow = () => {};
-
   return (
-    <div>
+    <div className="product-detail-content">
       <div className="product-detail-container">
         <div>
           <div className="image-container">
@@ -49,22 +47,23 @@ const ProductDetails = ({ product, products }: any) => {
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
+            <>
               <AiFillStar />
               <AiFillStar />
               <AiFillStar />
               <AiFillStar />
               <AiOutlineStar />
-            </div>
+            </>
             <p>(20)</p>
           </div>
           <h4>جزییات: </h4>
           <p>{details}</p>
-          <p className="price">
-            <h4>قیمت:</h4>${price}
-          </p>
+          <div>
+            <h3>قیمت:</h3>
+            <p className="price">${price}</p>
+          </div>
           <div className="quantity">
-            <h3>تعداد:</h3>
+            <h3>تعداد:</h3>10000
           </div>
         </div>
       </div>
