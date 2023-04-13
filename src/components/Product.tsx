@@ -7,7 +7,7 @@ import Image from "next/image";
 const Product = ({ product: { image, name, slug, price } }: any) => {
   return (
     <div>
-      <Link href={`/product/${slug.current}`}>
+      <Link href={`/product/${slug?.current}`}>
         <div className="product-card">
           <Image
             src={String(urlFor(image && image[0]))}
