@@ -58,34 +58,19 @@ const ProductDetails = ({ product, products }: any) => {
             </div>
             <p>(20)</p>
           </div>
-          <h4>Details: </h4>
+          <h4>جزییات: </h4>
           <p>{details}</p>
-          <p className="price">${price}</p>
+          <p className="price">
+            <h4>قیمت:</h4>${price}
+          </p>
           <div className="quantity">
-            <h3>Quantity:</h3>
-            <p className="quantity-desc">
-              <span className="minus">
-                <AiOutlineMinus />
-              </span>
-              {/* <span className="num">{qty}</span> */}
-              <span className="plus">
-                <AiOutlinePlus />
-              </span>
-            </p>
-          </div>
-          <div className="buttons">
-            <button type="button" className="add-to-cart">
-              Add to Cart
-            </button>
-            <button type="button" className="buy-now" onClick={handleBuyNow}>
-              Buy Now
-            </button>
+            <h3>تعداد:</h3>
           </div>
         </div>
       </div>
 
       <div className="maylike-products-wrapper">
-        <h2>You may also like</h2>
+        <h2>پیشنهاد شده</h2>
         <div className="marquee">
           <div className="maylike-products-container track">
             {products.map((item: { _id: any }) => (
@@ -99,7 +84,7 @@ const ProductDetails = ({ product, products }: any) => {
 };
 
 export const getStaticPaths = async () => {
-  // return just current slug property 
+  // return just current slug property
   const query = `*[_type == "product"] {
     slug {
       current
