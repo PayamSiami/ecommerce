@@ -3,8 +3,6 @@ body,
 * {
   padding: 0;
   margin: 0;
-  font-family: 'BYekan' -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, BYekan, Droid Sans, Helvetica Neue, sans-serif,;
   box-sizing: border-box;
   direction: rtl;
 }
@@ -129,8 +127,6 @@ span.text-red {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 20px;
-  width: 100%;
 }
 
 .product-card {
@@ -163,16 +159,18 @@ span.text-red {
 }
 
 .hero-banner-container {
-  padding: 100px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
   background-color: #F5EBEB;
-  position: relative;
-  height: 450px;
+  padding: 10px;
   line-height: 0.9;
   width: 100%;
 }
 
-.hero-banner-container .beats-solo {
-  font-size: 20px;
+.hero-banner-container .content {
+  align-self: center;
 }
 
 .hero-banner-container button {
@@ -191,6 +189,7 @@ span.text-red {
 .hero-banner-container h3 {
   font-size: 4rem;
   margin-top: 4px;
+  z-index: 1;
 }
 
 .hero-banner-container h1 {
@@ -201,11 +200,13 @@ span.text-red {
 }
 
 .hero-banner-image {
-  position: absolute;
-  top: 0%;
-  left: 20%;
+  border-radius: 10px;
   width: 450px;
   height: 450px;
+}
+
+.hero-banner-image:hover {
+  transform: scale(1.1);
 }
 
 .desc {
@@ -255,7 +256,6 @@ span.text-red {
   padding: 100px 40px;
   background-color: #D5B4B4;
   position: relative;
-  height: 400px;
   line-height: 1;
   color: white;
   width: 100%;
@@ -737,16 +737,11 @@ span.text-red {
   margin-top: 10px;
 }
 
-@media screen and (max-width:800px) {
-  .hero-banner-container {
-    height: 560px;
-  }
 
+@media screen and (max-width:800px) {
   .hero-banner-image {
-    width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
+    width: 250px;
+    height: 250px;
   }
 
   .footer-banner-container {
