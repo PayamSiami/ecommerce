@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Product = ({ product: { image, name, slug, price } }: any) => {
   return (
-    <div>
+    <>
       <Link href={`/product/${slug?.current}`}>
         <div className="product-card">
           <Image
@@ -20,7 +20,7 @@ const Product = ({ product: { image, name, slug, price } }: any) => {
           <p className="product-price">${price}</p>
         </div>
       </Link>
-    </div>
+    </>
   );
 };
 

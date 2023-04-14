@@ -3,11 +3,10 @@ body,
 * {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'BYekan' -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, BYekan, Droid Sans, Helvetica Neue, sans-serif,;
   box-sizing: border-box;
   direction: rtl;
-
 }
 
 /* width */
@@ -41,10 +40,6 @@ a {
   margin: auto;
   width: 100%;
 
-}
-
-.layout {
-  /* padding: 10px; */
 }
 
 .navbar-container {
@@ -302,6 +297,10 @@ span.text-red {
   height: 400px;
 }
 
+.footer-banner-image:hover {
+  transform: scale(1.1);
+}
+
 .banner-desc .left {
   z-index: 1;
 }
@@ -495,7 +494,7 @@ span.text-red {
   transform: scale(1.1, 1.1);
 }
 
-.product-detail-content {
+.layout {
   max-width: 1400px;
   margin: auto;
   width: 100%;

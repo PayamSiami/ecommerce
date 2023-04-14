@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiFillStar,
-  AiOutlineStar,
-} from "react-icons/ai";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 import { client, urlFor } from "../../../lib/client";
 import { Product } from "../../components";
@@ -15,7 +10,7 @@ const ProductDetails = ({ product, products }: any) => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="product-detail-content">
+    <div className="layout">
       <div className="product-detail-container">
         <div>
           <div className="image-container">
@@ -84,7 +79,7 @@ const ProductDetails = ({ product, products }: any) => {
 
 export const getStaticPaths = async () => {
   // return just current slug property
-  const query = `*[_type == "product"] {
+  const query = `*[_type == "products"] {
     slug {
       current
     }
@@ -107,9 +102,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
   // fetch first properties that match the query slug
-  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+  const query = `*[_type == "products" && slug.current == '${slug}'][0]`;
   // fetch similar products
-  const productsQuery = '*[_type == "product"]';
+  const productsQuery = '*[_type == "products"]';
 
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);

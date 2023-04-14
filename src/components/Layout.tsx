@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const Layout = ({ children }: any) => {
   return (
-    <div className="layout">
+    <>
       <Head>
         <title>فروشگاه لیواری</title>
       </Head>
@@ -17,7 +17,7 @@ const Layout = ({ children }: any) => {
       <footer>
         <Footer />
       </footer>
-    </div>
+    </>
   );
 };
 
