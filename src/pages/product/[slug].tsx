@@ -1,81 +1,62 @@
-import React, { useState } from "react";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-
-import { client, urlFor } from "../../../lib/client";
-import { Product } from "../../components";
+import Layout from "@/components/Layout";
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { client, urlFor } from "../../../lib/client";
 
-const ProductDetails = ({ product, products }: any) => {
-  const { image, name, details, price } = product;
-  const [index, setIndex] = useState(0);
+export default function ProductScreen({ product }: any) {
+  const { image, name, details, price, category, brand } = product;
+
+  if (!product) return <div>هیچ محصولی یافت نشد!</div>;
 
   return (
-    <div className="layout">
-      <div className="product-detail-container">
+    <Layout title={product.name}>
+      <div className="py-2">
+        <Link href="/">بازگشت به صفحه اصلی</Link>
+      </div>
+      <div className="grid md:grid-cols-4 md:gap-3">
+        <div className="md:col-span-2">
+          <Image
+            src={String(urlFor(image && image[0]))}
+            alt={product.name}
+            width={640}
+            height={640}
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "auto",
+            }}
+          />
+        </div>
         <div>
-          <div className="image-container">
-            <Image
-              src={String(urlFor(image && image[index]))}
-              className="product-detail-image"
-              alt="Product Details"
-              width={100}
-              height={100}
-            />
-          </div>
-          <div className="small-images-container">
-            {image?.map((item: any, i: any) => (
-              <Image
-                key={i}
-                src={String(urlFor(item))}
-                className={
-                  i === index ? "small-image selected-image" : "small-image"
-                }
-                onMouseEnter={() => setIndex(i)}
-                alt="image selected"
-                width={100}
-                height={100}
-              />
-            ))}
-          </div>
+          <ul>
+            <li>
+              <h1 className="text-lg">{name}</h1>
+            </li>
+            <li>دسته بندی: - {category}</li>
+            <li>برند: -{brand}</li>
+            <li>
+              {product.rating} of {product.numReviews} reviews
+            </li>
+            <li>درباره: {details}</li>
+          </ul>
         </div>
-
-        <div className="product-detail-desc">
-          <h1>{name}</h1>
-          <div className="reviews">
-            <>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
-            </>
-            <p>(20)</p>
-          </div>
-          <h4>جزییات: </h4>
-          <p>{details}</p>
-          <div>
-            <h3>قیمت:</h3>
-            <p className="price">${price}</p>
-          </div>
-          <div className="quantity">
-            <h3>تعداد:</h3>10000
+        <div>
+          <div className="card p-5">
+            <div className="mb-2 flex justify-between">
+              <div>قیمت</div>
+              <div>${price}</div>
+            </div>
+            <div className="mb-2 flex justify-between">
+              <div>وضعیت</div>
+              <div>{product.countInStock > 0 ? "موجود است" : "موجود نیست"}</div>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="maylike-products-wrapper">
-        <h2>پیشنهاد شده</h2>
-        <div className="marquee">
-          <div className="maylike-products-container track">
-            {products.map((item: { _id: any }) => (
-              <Product key={item._id} product={item} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    </Layout>
   );
-};
+}
 
 export const getStaticPaths = async () => {
   // return just current slug property
@@ -113,5 +94,3 @@ export const getStaticProps = async ({ params: { slug } }: any) => {
     props: { products, product },
   };
 };
-
-export default ProductDetails;
