@@ -39,3 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Sanity path
 https://tomato-sparrow.sanity.studio/desk
+
+##
+https://frolicking-begonia-72d91a.netlify.app/
