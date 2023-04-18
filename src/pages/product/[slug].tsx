@@ -19,6 +19,7 @@ export default function ProductScreen({ product }: any) {
           <Image
             src={String(urlFor(image && image[0]))}
             alt={product.name}
+            className="rounded shadow"
             width={640}
             height={640}
             sizes="100vw"
