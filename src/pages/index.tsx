@@ -4,7 +4,7 @@ import { client } from "../../lib/client";
 
 export default function Home({ products }: any) {
   return (
-    <Layout>
+    <Layout title="صفحه اصلی">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product: any) => (
           <ProductItem product={product} key={product?._id} />
